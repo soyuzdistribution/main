@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Творческое объединение</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAFdQTFRFAAAA////gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA////Bo/7cwAAAAd0Uk5TAAUJEhsgI0NpNwEAAADRSURBVDjLpZPRDoMgDEVbFUUFFfH/f3UdA2dEluzmAz3haG2JAL1/bCeVe9QGO/kUzQHbZUyRHICgc9j5CDpgzQE7nwAdqIcDDj5RErhgXgLrlF/dDYDQF0BbvgFU9QQ1wKP2eYH1AHy+QWbMgdgkA3iLAsheHwE6xDxwx3y0mqA5sEXmgD0yB/SZHwEYeJ+BMMl7FHJgcm55D7aUn3c9AWr1DKjrGFDqGBDdDrj2+wHWN+D7f5jAOTwHSOAcyALRORDNqXMgmrUCAF5Z4ErZiJdS+wMPTxDIyurabgAAAABJRU5ErkJggg==">
+</head>
+<body>
+    <div class="container">
+        <!-- Шумовой эффект для текстуры -->
+        <div class="noise"></div>
+        
+        <!-- Фоновая визуализация аудио -->
+        <div class="visualizer-container">
+            <canvas class="visualizer-canvas"></canvas>
+        </div>
+        
+        <!-- Навигация -->
+        <nav class="nav">
+            <a href="blog.html" class="blog-link" aria-label="Блог">
+                <img src="images/icons/88142.png" alt="Блог" class="blog-icon">
+            </a>
+        </nav>
+        
+        <!-- Название сайта - удалено -->
+        
+        <!-- Контейнер для аудиофайлов с хаотичным расположением -->
+        <div class="audio-container" id="audio-container">
+            <!-- Аудиофайлы будут добавлены через JavaScript -->
+        </div>
+        
+        <!-- Зона для загрузки аудиофайлов (скрыта для посетителей) -->
+        <div class="upload-dropzone">
+            <!-- Зона загрузки скрыта для посетителей -->
+            <p>Перетащите аудиофайлы сюда или нажмите для выбора</p>
+        </div>
+        
+        <!-- Аудио плеер -->
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="player-button player-play" aria-label="Воспроизвести">▶</button>
+                <div class="progress-container">
+                    <div class="waveform"></div>
+                    <div class="progress-bar"></div>
+                    <div class="progress-marker"></div>
+                </div>
+                <div class="track-info">
+                    <span class="track-title">Выберите трек</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Футер -->
+        <footer class="blog-footer">
+            <p>&copy; 2024 SOYUZ - Творческое объединение</p>
+        </footer>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html> 

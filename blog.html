@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БЛОГ | Творческое объединение</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAFdQTFRFAAAA////gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA////Bo/7cwAAAAd0Uk5TAAUJEhsgI0NpNwEAAADRSURBVDjLpZPRDoMgDEVbFUUFFfH/f3UdA2dEluzmAz3haG2JAL1/bCeVe9QGO/kUzQHbZUyRHICgc9j5CDpgzQE7nwAdqIcDDj5RErhgXgLrlF/dDYDQF0BbvgFU9QQ1wKP2eYH1AHy+QWbMgdgkA3iLAsheHwE6xDxwx3y0mqA5sEXmgD0yB/SZHwEYeJ+BMMl7FHJgcm55D7aUn3c9AWr1DKjrGFDqGBDdDrj2+wHWN+D7f5jAOTwHSOAcyALRORDNqXMgmrUCAF5Z4ErZiJdS+wMPTxDIyurabgAAAABJRU5ErkJggg==">
+</head>
+<body class="blog-page">
+    <!-- Шумовой эффект и фоновая визуализация -->
+    <div class="noise"></div>
+    
+    <div class="blog-container">
+        <!-- Навигация и возврат на главную (теперь как иконка) -->
+        <header class="blog-header">
+            <a href="index.html" class="home-link" aria-label="Главная">
+                <div class="home-icon"></div>
+            </a>
+            <!-- Заголовок блога скрыт -->
+            <h1 class="blog-title">БЛОГ</h1>
+        </header>
+        
+        <!-- Блог с постами в левой части с шириной 15% -->
+        <main class="blog-content">
+            <div class="blog-articles">
+                <!-- Пример статей, новые добавляются в начало -->
+                <article class="blog-article">
+                    <header class="article-header">
+                        <time class="article-date">17.03.2024 15:30:45.723 (UTC+1)</time>
+                        <h2 class="article-title">Запуск проекта</h2>
+                    </header>
+                    <div class="article-content">
+                        <p>Мы рады представить наше творческое объединение. Этот проект исследует новые формы взаимодействия со звуком и музыкой, объединяя аудио-эксперименты с визуальными исследованиями.</p>
+                        <p>Мы предлагаем нестандартный, деконструктивный подход к организации и представлению звуковых объектов. Интерфейс намеренно нарушает привычные паттерны взаимодействия, создавая новый опыт восприятия.</p>
+                    </div>
+                </article>
+                
+                <article class="blog-article">
+                    <header class="article-header">
+                        <time class="article-date">15.03.2024 09:24:13.156 (UTC+1)</time>
+                        <h2 class="article-title">О хаотичном дизайне</h2>
+                    </header>
+                    <div class="article-content">
+                        <p>Дизайн нашего проекта основан на принципах хаотичной эстетики. Мы исследуем, как непредсказуемое расположение элементов интерфейса влияет на опыт пользователя и его взаимодействие с контентом.</p>
+                        <p>В противовес минималистичным интерфейсам с чёткой информационной иерархией, мы предлагаем иммерсивное пространство, где пользователь сам определяет свой путь через хаос и находит собственные точки фокуса.</p>
+                    </div>
+                </article>
+                
+                <article class="blog-article">
+                    <header class="article-header">
+                        <time class="article-date">10.03.2024 12:17:05.489 (UTC+1)</time>
+                        <h2 class="article-title">Звук как объект</h2>
+                    </header>
+                    <div class="article-content">
+                        <p>В нашем проекте мы рассматриваем звуковые файлы не просто как аудиозаписи, а как объекты, обладающие собственными визуальными и пространственными характеристиками.</p>
+                        <p>Каждый звуковой файл представлен в виде уникального визуального элемента с собственной позицией, углом наклона и визуальным представлением. Это позволяет воспринимать звук не только на слух, но и визуально.</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+        
+        <footer class="blog-footer">
+            <p>&copy; 2024 SOYUZ - Творческое объединение</p>
+        </footer>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html> 

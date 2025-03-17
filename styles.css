@@ -1,0 +1,543 @@
+/* SOYUZ - Творческое объединение */
+/* Основные стили */
+
+:root {
+    /* Цветовая палитра - обновлена на белую тему */
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --accent-color: #555555;
+    --bg-color: #f8f8f8;
+    --text-color: #222222;
+    --border-color: rgba(0, 0, 0, 0.1);
+    
+    /* Типографика */
+    --main-font: 'Arial', sans-serif;
+    --mono-font: 'Courier New', monospace;
+    
+    /* Размеры и отступы */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* Брейкпоинты */
+    --mobile: 480px;
+    --tablet: 768px;
+    --desktop: 1024px;
+}
+
+/* Глобальные сбросы */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--main-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Основной контейнер */
+.container {
+    width: 100%;
+    height: 100%;
+    padding: var(--spacing-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Шумовой эффект */
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,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');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Название сайта */
+.site-title {
+    /* Удалено согласно требованию: логотипа союз на сайте не должно быть */
+    display: none;
+}
+
+/* Навигация */
+.nav {
+    position: fixed;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 100;
+}
+
+.blog-link {
+    display: inline-block;
+    padding: var(--spacing-sm);
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-family: var(--mono-font);
+    font-weight: bold;
+    border-radius: 50%;
+    transform: rotate(5deg);
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 24px;
+}
+
+.blog-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.blog-link:hover {
+    transform: rotate(-5deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Контейнер для аудиофайлов */
+.audio-container {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 2;
+    padding: var(--spacing-md);
+    -webkit-overflow-scrolling: touch; /* Плавный скроллинг на iOS */
+}
+
+/* Стиль аудиофайлов */
+.audio-file {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 3;
+    width: 120px;
+    text-align: center;
+    margin: 15px;
+}
+
+.audio-file-icon {
+    width: 80px;
+    height: 110px;
+    margin: 0 auto;
+    position: relative;
+    transition: all 0.3s ease;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 110"><path d="M5,5 L60,5 L75,20 L75,105 L5,105 Z" stroke="black" stroke-width="2" fill="currentColor"/><path d="M59,5 L59,21 L75,21 Z" stroke="black" stroke-width="2" fill="white"/><circle cx="40" cy="60" r="18" stroke="black" stroke-width="2" fill="none"/><circle cx="40" cy="60" r="5" stroke="black" stroke-width="2" fill="black"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.audio-file-title {
+    font-family: var(--mono-font);
+    font-size: 0.8rem;
+    margin-top: var(--spacing-sm);
+    color: var(--text-color);
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.audio-file:hover {
+    z-index: 10;
+}
+
+.audio-file:hover .audio-file-icon {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.audio-file.active .audio-file-icon {
+    box-shadow: 0 0 30px var(--accent-color);
+}
+
+/* Плеер */
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: var(--spacing-md);
+}
+
+.player-button {
+    background: none;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.player-button:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* Прогрессбар в стиле Apple */
+.progress-container {
+    position: relative;
+    height: 30px;
+    background-color: transparent;
+    flex-grow: 1;
+    margin: 0 var(--spacing-lg);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.waveform {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1px;
+    padding: 0 2px;
+}
+
+.waveform-bar {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.15);
+    height: 50%;
+    border-radius: 1px;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+.progress-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 2;
+    transform: translateX(-50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.track-info {
+    font-family: var(--mono-font);
+    margin: 0;
+    padding: 0 var(--spacing-md);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+/* Визуализатор */
+.visualizer-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.visualizer-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* Зона загрузки (скрыта для посетителей) */
+.upload-dropzone {
+    display: none; /* Скрыто для посетителей */
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    margin: var(--spacing-lg) auto;
+    max-width: 500px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-dropzone.active {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+.upload-dropzone p {
+    font-family: var(--mono-font);
+    margin: var(--spacing-md) 0;
+}
+
+/* Стили для страницы блога */
+.blog-page {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--main-font);
+}
+
+.blog-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding: var(--spacing-lg);
+}
+
+.blog-header {
+    display: flex;
+    justify-content: flex-end; /* Меняем на выравнивание справа */
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+/* Заголовок блога скрыт */
+.blog-title {
+    display: none; /* Скрываем заголовок */
+    font-family: var(--mono-font);
+    font-size: 2rem;
+    letter-spacing: -0.05em;
+}
+
+/* Кнопка возврата на главную как иконка */
+.home-link {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.home-icon {
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" /></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+}
+
+.home-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.blog-content {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.blog-articles {
+    width: 20%; /* Уменьшенная фиксированная ширина 20% экрана */
+    max-width: 20%; /* Максимальная ширина 20% экрана */
+    margin-right: auto; /* Автоматический отступ справа */
+    padding-right: var(--spacing-lg);
+}
+
+.blog-article {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.article-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.article-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-family: monospace; /* Моноширинный шрифт для лучшего выравнивания цифр */
+    white-space: nowrap; /* Предотвращаем перенос даты */
+}
+
+.article-title {
+    font-family: var(--mono-font);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.article-content p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.blog-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Адаптивность */
+@media screen and (max-width: 768px) {
+    .blog-articles {
+        width: 20%; /* Сохраняем 20% экрана на всех устройствах */
+        max-width: 20%;
+        padding-right: var(--spacing-md);
+    }
+    
+    .article-title {
+        font-size: 1.2rem;
+    }
+    
+    .audio-file {
+        width: 90px;
+        margin: 10px;
+    }
+    
+    .audio-file-icon {
+        width: 60px;
+        height: 80px;
+    }
+    
+    .audio-file-title {
+        font-size: 0.7rem;
+    }
+    
+    /* Улучшение скроллинга на мобильных */
+    .audio-container {
+        height: 65vh; /* Чуть меньше высота, чтобы был виден плеер */
+        padding: var(--spacing-sm);
+    }
+    
+    .audio-player {
+        padding: var(--spacing-sm);
+        height: 60px;
+    }
+    
+    .player-controls {
+        gap: var(--spacing-sm);
+    }
+    
+    .player-button {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .progress-container {
+        margin: 0 var(--spacing-md);
+    }
+    
+    .track-info {
+        max-width: 180px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .blog-articles {
+        width: 20%; /* Сохраняем 20% экрана на всех устройствах */
+        max-width: 20%;
+        padding-right: var(--spacing-sm);
+    }
+    
+    .article-title {
+        font-size: 1rem;
+    }
+    
+    .blog-container {
+        padding: var(--spacing-md);
+    }
+    
+    .audio-file {
+        width: 70px;
+        margin: 8px;
+    }
+    
+    .audio-file-icon {
+        width: 50px;
+        height: 70px;
+    }
+    
+    .audio-file-title {
+        font-size: 0.6rem;
+    }
+    
+    /* Дополнительные улучшения для очень маленьких экранов */
+    .player-button {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .progress-container {
+        margin: 0 var(--spacing-sm);
+        height: 25px;
+    }
+    
+    .track-info {
+        max-width: 120px;
+        font-size: 0.7rem;
+        padding: 0 var(--spacing-sm);
+    }
+} 
