@@ -656,7 +656,7 @@ function playTrack(path, id, element) {
             
             // Показываем визуализаторы при начале воспроизведения
             if (SOYUZ.ui.visualizationCanvas) {
-                SOYUZ.ui.visualizationCanvas.style.opacity = '0.3';
+                SOYUZ.ui.visualizationCanvas.style.opacity = '0.35';
             }
             
             // Подключаем аудио элемент к аудио контексту
@@ -745,7 +745,7 @@ function togglePlayback() {
         SOYUZ.audio.isPlaying = true;
         // Показываем визуализаторы при воспроизведении
         if (SOYUZ.ui.visualizationCanvas) {
-            SOYUZ.ui.visualizationCanvas.style.opacity = '0.3';
+            SOYUZ.ui.visualizationCanvas.style.opacity = '0.35';
         }
     }
     
@@ -828,8 +828,8 @@ function startVisualization() {
             }
         } else {
             // Если играет музыка, показываем визуализаторы
-            if (SOYUZ.ui.visualizationCanvas.style.opacity !== '0.3') {
-                SOYUZ.ui.visualizationCanvas.style.opacity = '0.3';
+            if (SOYUZ.ui.visualizationCanvas.style.opacity !== '0.35') {
+                SOYUZ.ui.visualizationCanvas.style.opacity = '0.35';
             }
         }
         
@@ -1084,7 +1084,7 @@ function seekToPosition(e) {
                 updatePlayButton();
                 // Показываем визуализаторы при начале воспроизведения
                 if (SOYUZ.ui.visualizationCanvas) {
-                    SOYUZ.ui.visualizationCanvas.style.opacity = '0.3';
+                    SOYUZ.ui.visualizationCanvas.style.opacity = '0.35';
                 }
             })
             .catch(error => {
