@@ -639,7 +639,10 @@ function playTrack(path, id, element) {
     
     // Устанавливаем источник для аудио элемента
     try {
-        SOYUZ.audio.element.src = path;
+        // Кодируем путь для файлов с пробелами и спецсимволами
+        const encodedPath = encodeURI(path);
+        
+        SOYUZ.audio.element.src = encodedPath;
         
         // Получаем название трека из пути
         const trackName = path.split('/').pop().replace(/\.[^/.]+$/, "");
