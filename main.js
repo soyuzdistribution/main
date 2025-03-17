@@ -261,7 +261,7 @@ function loadAudioFilesFromDirectory() {
         'декабрь4.1.mp3',
         'октябрь2.mp3',
         'dismade.mp3',
-        'untitled #2.mp3',
+        'untitled2.mp3',
         '8feb cliche.mp3',
         'fuckeduptempowguitar.mp3',
         'noise normalised.mp3',
