@@ -570,9 +570,12 @@ function createAudioFileElement(track) {
     // Определяем цвет для иконки
     const iconColor = track.color || getRandomColor();
     
+    // Получаем название трека и добавляем расширение MP3
+    const titleWithExt = track.title + '.mp3';
+    
     audioFile.innerHTML = `
-        <div class="audio-file-icon" style="color: ${iconColor}"></div>
-        <div class="audio-file-title">${track.title}</div>
+        <div class="audio-file-icon"></div>
+        <div class="audio-file-title">${titleWithExt}</div>
     `;
     
     // Добавляем обработчик клика для воспроизведения

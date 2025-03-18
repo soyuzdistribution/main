@@ -9,9 +9,11 @@
     --bg-color: #f8f8f8;
     --text-color: #222222;
     --border-color: rgba(0, 0, 0, 0.1);
+    --blue-outline: #007AFF; /* Добавляем синий цвет для обводки */
     
     /* Типографика */
-    --main-font: 'Arial', sans-serif;
+    --main-font: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --blog-font: 'American Typewriter', Georgia, serif;
     --mono-font: 'Courier New', monospace;
     
     /* Размеры и отступы */
@@ -39,6 +41,11 @@ html, body {
     background-color: var(--bg-color);
     color: var(--text-color);
     overflow-x: hidden;
+}
+
+/* Специальный стиль для страницы блога */
+.blog-page {
+    font-family: var(--main-font);
 }
 
 a {
@@ -82,44 +89,30 @@ a {
     z-index: 100;
 }
 
-.blog-link {
+/* Новый стиль для навигации 1/2 */
+.page-nav {
     display: inline-block;
-    padding: var(--spacing-sm);
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    font-family: var(--mono-font);
-    font-weight: bold;
-    border-radius: 50%;
-    transform: rotate(5deg);
-    transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
+    font-family: var(--main-font);
+    font-size: 16px;
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 6px;
     text-align: center;
-    line-height: 24px;
+    transition: all 0.3s ease;
 }
 
-.blog-icon {
-    width: 24px;
-    height: 24px;
-    display: block;
+.page-nav span {
+    margin: 0 2px;
 }
 
-.blog-link:hover {
-    transform: rotate(-5deg) scale(1.1);
+.page-nav .current {
+    font-weight: bold;
+}
+
+.page-nav:hover {
+    transform: scale(1.05);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Контейнер для аудиофайлов */
-.audio-container {
-    width: 100%;
-    height: 70vh;
-    position: relative;
-    margin: 0 auto;
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 2;
-    padding: var(--spacing-md);
-    -webkit-overflow-scrolling: touch; /* Плавный скроллинг на iOS */
 }
 
 /* Стиль аудиофайлов */
@@ -135,26 +128,64 @@ a {
 
 .audio-file-icon {
     width: 80px;
-    height: 110px;
+    height: 80px;
     margin: 0 auto;
     position: relative;
     transition: all 0.3s ease;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 110"><path d="M5,5 L60,5 L75,20 L75,105 L5,105 Z" stroke="black" stroke-width="2" fill="currentColor"/><path d="M59,5 L59,21 L75,21 Z" stroke="black" stroke-width="2" fill="white"/><circle cx="40" cy="60" r="18" stroke="black" stroke-width="2" fill="none"/><circle cx="40" cy="60" r="5" stroke="black" stroke-width="2" fill="black"/></svg>');
+    background-image: url('images/icons/converted/cdicon.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
 .audio-file-title {
-    font-family: var(--mono-font);
+    position: relative;
+    font-family: var(--main-font);
     font-size: 0.8rem;
     margin-top: var(--spacing-sm);
-    color: var(--text-color);
+    color: var(--primary-color);
     text-align: center;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: 4px 6px;
+    border: 1px solid var(--blue-outline);
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0, 122, 255, 0.3);
+    background-color: var(--blue-outline);
+    transition: padding-left 0.5s ease;
+}
+
+.audio-file-title::before {
+    content: '▶';
+    position: absolute;
+    left: -15px; /* Начинаем за пределами видимой области */
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); /* Для лучшей видимости на тексте */
+    transition: opacity 0.3s ease 0.3s; /* Задержка появления иконки после расширения фона */
+    z-index: 5;
+}
+
+.audio-file.active .audio-file-title {
+    padding-left: 20px; /* Расширяем прямоугольник влево */
+}
+
+.audio-file.active .audio-file-title::before {
+    left: 6px; /* Позиция значка внутри расширенного прямоугольника */
+    opacity: 1;
+}
+
+/* Обратная анимация при смене трека */
+.audio-file:not(.active) .audio-file-title {
+    transition: padding-left 0.5s ease 0.3s; /* Задержка сжатия после исчезновения иконки */
+}
+
+.audio-file:not(.active) .audio-file-title::before {
+    opacity: 0;
+    transition: opacity 0.3s ease, left 0.3s ease;
 }
 
 .audio-file:hover {
@@ -162,12 +193,11 @@ a {
 }
 
 .audio-file:hover .audio-file-icon {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    /* Убираем тень при наведении */
 }
 
 .audio-file.active .audio-file-icon {
-    box-shadow: 0 0 30px var(--accent-color);
+    /* Убираем тень для активной иконки */
 }
 
 /* Плеер */
@@ -279,7 +309,7 @@ a {
 }
 
 .track-info {
-    font-family: var(--mono-font);
+    font-family: var(--main-font);
     margin: 0;
     padding: 0 var(--spacing-md);
     white-space: nowrap;
@@ -346,11 +376,12 @@ a {
 
 .blog-header {
     display: flex;
-    justify-content: flex-end; /* Меняем на выравнивание справа */
+    justify-content: flex-end; /* Выравнивание справа */
     align-items: center;
     margin-bottom: var(--spacing-xl);
     padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid var(--border-color);
+    /* Убираем разделительную линию между header и body */
+    border-bottom: none;
     position: relative;
 }
 
